@@ -25,12 +25,12 @@ def move_ring(s_curr, s_new):
 
 #takes a stack and prints out the stack with the rings on it
 def print_ring(s):
-    print("   |")
+    print(" "*max + "|")
     if(len(s)>0):
-        r = s.pop()
-        print((3-r)*" " + ("-"*r) + "|" + ("-"*r) )
+        d = s.pop()
+        print((max-d)*" " + ("-"*d) + "|" + ("-"*d) )
         print_ring(s)
-        s.append(r)
+        s.append(d)
 
 
 
@@ -38,31 +38,30 @@ def print_ring(s):
 #prints all three stacks with all their rings
 def print_stacks(s1, s2, s3):
     print_ring(s1)
-    print("\n   |")
+    print("\n" +" "*max + "|")
     print_ring(s2)
-    print("\n   |")
+    print("\n" +" "*max + "|")
     print_ring(s3)
-    print("\n")
 
 
 
 #-------------------Initializing variables below--------------
-ring1 =1
-ring2 =2
-ring3 =3
+
 
 stack1 = []
-stack1.append(ring3)
-stack1.append(ring2)
-stack1.append(ring1)
 stack2 = []
 stack3 = []
 
 #a win stack to check to see if the user has won
 win= []
-win.append(ring3)
-win.append(ring2)
-win.append(ring1)
+
+#number of rings 
+max = 20
+
+#add starter rings
+for i in range(1,max):
+    stack1.append(max-i)
+    win.append(max-i)
 
 
 
